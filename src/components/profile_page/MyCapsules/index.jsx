@@ -86,7 +86,7 @@ const MyCapsules = () => {
         <div className="my-capsules-container">
             <h2 className="my-capsules-title">My Time Capsules</h2>
             
-            {/* Pending Capsules Section */}
+            
             {capsules.pending.length > 0 && (
                 <div className="capsules-section">
                     <h3 className="section-title">Pending Capsules ({capsules.pending.length})</h3>
@@ -129,7 +129,7 @@ const MyCapsules = () => {
                 </div>
             )}
 
-            {/* No Capsules Message */}
+          
             {capsules.pending.length === 0 && capsules.revealed.length === 0 && (
                 <div className="no-capsules">
                     <p>You haven't created any time capsules yet.</p>
