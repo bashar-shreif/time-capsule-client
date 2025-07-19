@@ -10,7 +10,9 @@ const TimeAtom = () => {
             <div className="ring-2">
                 <div className="dot dot-2"></div>
             </div>
-
+            <div className="ring-3>
+                <div className="dot dot-3"></div>
+            </div>
             <img className='capsule' src={CapsuleIllustration} alt="time_capsule" />
         </div>
     );
