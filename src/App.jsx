@@ -1,10 +1,9 @@
 import React from 'react';
-import Capsule from './components/shared/Capsule/Capsule';
-import Input from'./components/shared/Input/Input';
+import Layout from './components/Layout/Layout';
 const App = () => {
 
   return (<>
-  <Input></Input>
+  <Layout></Layout>
   </>);
 
 }
