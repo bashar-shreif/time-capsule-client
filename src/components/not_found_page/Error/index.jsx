@@ -1,6 +1,6 @@
 import React from 'react';
-import Illustration from '../../assets/images/CapsuleIllustration.png';
-import '../../pages/NotFound/style.css';
+import Illustration from '../../../assets/images/CapsuleIllustration.png';
+import './style.css';
 
 const Error = () => {
     return (

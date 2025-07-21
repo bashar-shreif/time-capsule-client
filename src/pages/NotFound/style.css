@@ -1,0 +1,134 @@
+:root {
+  --bg: #e0e0e0;
+  --text: #353a3e;
+  --light: #bfbfbf;
+  --dark: #222526;
+}
+
+.error-container {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Sora", sans-serif;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* 404 Number with capsule */
+.error-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.four {
+  font-size: 200px;
+  font-weight: 900;
+  color: var(--text);
+  text-shadow: 4px 4px 0px var(--light), 8px 8px 20px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  margin: 0;
+}
+
+.capsule-illustration {
+  width: 180px;
+  height: auto;
+  margin: 0 30px;
+  animation: float 3s ease-in-out infinite;
+  rotate: 90deg;
+}
+
+/* Error message Box */
+.error-message-box {
+  background: var(--light);
+  border: 3px solid var(--dark);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.error-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.error-description {
+  font-size: 16px;
+  color: var(--text);
+  margin: 0 0 30px 0;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.home-button {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+  background: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .four {
+    font-size: 120px;
+  }
+
+  .capsule-illustration {
+    width: 80px;
+    margin: 0 15px;
+  }
+
+  .error-number {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .error-message-box {
+    padding: 30px 20px;
+  }
+
+  .error-title {
+    font-size: 20px;
+  }
+
+  .error-description {
+    font-size: 14px;
+  }
+}
