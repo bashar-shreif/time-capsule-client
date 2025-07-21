@@ -21,7 +21,6 @@
   width: 100%;
 }
 
-/* 404 Number with capsule */
 .error-number {
   display: flex;
   align-items: center;
@@ -46,7 +45,6 @@
   rotate: 90deg;
 }
 
-/* Error message Box */
 .error-message-box {
   background: var(--light);
   border: 3px solid var(--dark);
@@ -93,7 +91,6 @@
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Animations */
 @keyframes float {
   0%,
   100% {
@@ -104,7 +101,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .four {
     font-size: 120px;

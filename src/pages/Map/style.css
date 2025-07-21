@@ -10,7 +10,6 @@
   height: 100%;
 }
 
-/* Custom Pin Styles */
 .marker-wrapper {
   cursor: pointer;
 }
@@ -53,7 +52,6 @@
   left: 7px;
 }
 
-/* Mini Capsule Popup Styles */
 .popup-overlay {
   position: absolute;
   top: 0;
@@ -215,7 +213,6 @@
   z-index: 1;
 }
 
-/* MapTiler Attribution */
 .maplibregl-ctrl-bottom-left,
 .maplibregl-ctrl-bottom-right {
   opacity: 0.6;

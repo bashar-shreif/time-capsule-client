@@ -6,14 +6,14 @@ import "./styles/index.css";
 
 import React from 'react';
 
-import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
 
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
 
   return (<>
-    <BrowserRouter>  <NotFound></NotFound>
+    <BrowserRouter>  <Profile></Profile>
     </BrowserRouter>
   </>);
 
