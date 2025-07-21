@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Input from '../../components/shared/Input';
-import '../Register/style.css';
 
 
 const LoginPage = () => {

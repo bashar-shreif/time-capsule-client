@@ -9,8 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-    font-family: "Sora", sans-serif;
-
+  font-family: "Sora", sans-serif;
 }
 
 .landing-body {
@@ -323,7 +322,7 @@
     font-size: 14px;
   }
 
-  .website-icon{
+  .website-icon {
     width: 80px;
   }
 

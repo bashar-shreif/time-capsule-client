@@ -1,0 +1,222 @@
+.map-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom Pin Styles */
+.marker-wrapper {
+  cursor: pointer;
+}
+
+.custom-pin {
+  background: transparent;
+  border: none;
+}
+
+.pin-container {
+  position: relative;
+  width: 30px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.pin-container:hover {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.pin-head {
+  width: 24px;
+  height: 24px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.pin-point {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 16px solid #000;
+  position: absolute;
+  bottom: 0;
+  left: 7px;
+}
+
+/* Mini Capsule Popup Styles */
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.popup-container {
+  position: absolute;
+  pointer-events: auto;
+  transform: translate(-50%, -100%) translateY(-20px);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(-10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%) translateY(-20px) scale(1);
+  }
+}
+
+.mini-capsule {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.mini-capsule::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.mini-capsule-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mini-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mini-profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-profile-placeholder {
+  font-size: 18px;
+  color: #999;
+}
+
+.mini-user-info {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.mini-user-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 2px 0;
+}
+
+.mini-capsule-date {
+  font-size: 11px;
+  color: #666;
+  margin: 0;
+}
+
+.mini-message {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.mini-media-stack {
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-media-photo {
+  width: 80px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-media-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-media-photo.photo-1 {
+  transform: rotate(-6deg);
+  z-index: 2;
+}
+
+.mini-media-photo.photo-2 {
+  transform: rotate(6deg) translateX(25px);
+  z-index: 1;
+}
+
+/* MapTiler Attribution */
+.maplibregl-ctrl-bottom-left,
+.maplibregl-ctrl-bottom-right {
+  opacity: 0.6;
+}

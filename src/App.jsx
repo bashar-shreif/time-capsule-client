@@ -1,20 +1,20 @@
 import "./styles/utilities.css";
+import "./styles/App.css";
 import "./styles/colors.css";
 import "./styles/index.css";
 
 
 import React from 'react';
 
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Map from './pages/Map';
+import Auth from './pages/Auth';
 
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
 
   return (<>
-    <BrowserRouter>  <Login></Login>
-    <Register></Register>
+    <BrowserRouter>  <Map></Map> <Auth></Auth>
     </BrowserRouter>
   </>);
 

@@ -6,13 +6,13 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-.home-page{
+.home-page {
   background-color: var(--bg);
 }
-.capsules-wall{
+.capsules-wall {
   background-color: var(--text);
   padding: 20px;
-   border-radius: 30px;
+  border-radius: 30px;
 }
 .capsule-card:hover {
   transform: translateY(-2px);
@@ -155,20 +155,20 @@
   .capsule-card {
     padding: 20px;
   }
-  
+
   .capsule-header {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .media-stack {
     align-self: flex-end;
   }
-  
+
   .capsule-body {
     max-width: 100%;
   }
-  
+
   .media-photo {
     width: 65px;
     height: 85px;
@@ -179,25 +179,25 @@
   .capsule-card {
     padding: 16px;
   }
-  
+
   .profile-pic {
     width: 40px;
     height: 40px;
   }
-  
+
   .user-name {
     font-size: 15px;
   }
-  
+
   .capsule-date {
     font-size: 11px;
   }
-  
+
   .message-greeting,
   .message-text {
     font-size: 15px;
   }
-  
+
   .media-photo {
     width: 60px;
     height: 80px;
