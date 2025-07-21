@@ -1,23 +1,21 @@
 import React from 'react';
-import Icon from '../../assets/icons/svgs/Icon.svg';
-import { useNavigate } from 'react-router-dom';
+import CapsuleIllustration from '../../../assets/images/CapsuleIllustration.png';
 
-const Navigator = () => {
-            const navigate = useNavigate();
-
+const TimeAtom = () => {
     return (
-        <div className="navigator">
-            <ul className="nav-list">
-                <li className="nav-icon">
-                    <img src={Icon} alt="capsulock" className="website-icon"/>
-                    <h1 className="website-name">Capsulock</h1>
-                </li>
-                <li>
-                    <button className="login-btn" onClick={() => navigate('/login')}>Login</button>
-                </li>
-            </ul>
+        <div className="time-atom">
+            <div className="ring-1">
+                <div className="dot dot-1"></div>
+            </div>
+            <div className="ring-2">
+                <div className="dot dot-2"></div>
+            </div>
+            <div className="ring-3">
+                <div className="dot dot-3"></div>
+            </div>
+            <img className='capsule' src={CapsuleIllustration} alt="time_capsule" />
         </div>
     );
 }
 
-export default Navigator;
+export default TimeAtom;
