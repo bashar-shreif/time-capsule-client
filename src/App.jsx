@@ -5,13 +5,16 @@ import "./styles/index.css";
 
 import React from 'react';
 
-import Landing from './pages/Landing';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
 
   return (<>
-    <BrowserRouter>  <Landing/>
+    <BrowserRouter>  <Login></Login>
+    <Register></Register>
     </BrowserRouter>
   </>);
 
