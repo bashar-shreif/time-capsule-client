@@ -1,4 +1,5 @@
 import React from 'react';
+import { Plus, Paperclip } from 'lucide-react';
 
 const AddCapsule = () => {
     return (
