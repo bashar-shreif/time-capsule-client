@@ -1,10 +1,10 @@
 import React from 'react';
-import Profile from './Components/profile_page/Profile';
-
+import Capsule from './components/shared/Capsule';
+import Input from'./components/shared/Input';
 const App = () => {
 
   return (<>
-  <Profile></Profile>
+  <Input></Input>
   </>);
 
 }
