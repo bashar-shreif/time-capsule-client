@@ -25,16 +25,6 @@ const AddCapsule = () => {
                         </button>
                     </div>
                 </div>
-                {/* <div>
-                    <div className="card">
-                        <label className="file-card" htmlFor="fileInput">
-                            <Plus className="plus-icon" />
-                        </label>
-                        <input className="" id="fileInput" type="file" accept="image/*,video/*" />
-                    </div>
-                </div>
-            </div> */}
-
                 <div className="capsule-media-section">
                     <label className="media-card" htmlFor="fileInput">
                         <Plus className="plus-icon" />
