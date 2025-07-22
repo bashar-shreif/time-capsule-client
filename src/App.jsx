@@ -1,22 +1,37 @@
 import "./styles/utilities.css";
-import "./styles/App.css";
 import "./styles/colors.css";
 import "./styles/index.css";
 
-
-import React from 'react';
-
-import Profile from './pages/Profile';
-
-import { BrowserRouter } from "react-router-dom";
-
+import Landing from './pages/Landing/Landing.jsx';
+import '@fontsource/sora';
+import '@fontsource/sora/400.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home.jsx';
+import RegisterPage from './pages/Register';
+import LoginPage from './pages/Login';
+import ProfilePage from './pages/Profile/ProfilePage.jsx';
+import Layout from './components/shared/Layout';
+import Map from './pages/Map/Map.jsx';
+import NotFound from './pages/NotFound/NotFound.jsx';
 const App = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/login" element={<LoginPage />} />
 
-  return (<>
-    <BrowserRouter>  <Profile></Profile>
-    </BrowserRouter>
-  </>);
+                <Route path="/" element={<Layout />}>
+                    <Route path="home" element={<Home />} />
+                    <Route path="profile" element={<ProfilePage />} />
+                    <Route path="map" element={<Map />} />
+                </Route>
 
-}
+                <Route path="*" element={<NotFound />} />
+
+            </Routes>
+        </BrowserRouter>
+    );
+};
 
 export default App;
