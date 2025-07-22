@@ -2,17 +2,17 @@ import "./styles/utilities.css";
 import "./styles/colors.css";
 import "./styles/index.css";
 
-import Landing from './pages/Landing/Landing.jsx';
+import Landing from './pages/Landing';
 import '@fontsource/sora';
 import '@fontsource/sora/400.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home.jsx';
+import Home from './pages/Home';
 import RegisterPage from './pages/Register';
 import LoginPage from './pages/Login';
-import ProfilePage from './pages/Profile/ProfilePage.jsx';
+import ProfilePage from './pages/Profile';
 import Layout from './components/shared/Layout';
-import Map from './pages/Map/Map.jsx';
-import NotFound from './pages/NotFound/NotFound.jsx';
+import Map from './pages/Map';
+import NotFound from './pages/NotFound';
 const App = () => {
     return (
         <BrowserRouter>

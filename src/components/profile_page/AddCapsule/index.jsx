@@ -10,37 +10,36 @@ const AddCapsule = () => {
                 </div>
                 <div className="capsule-user-name">Ahmad Hassan</div>
             </div>
-            
+
             <div className="capsule-content">
                 <div className="capsule-input-section">
-                    <textarea 
+                    <textarea
                         className="capsule-message-input"
                         placeholder="To my future self.."
                         rows={3}
                     />
-                    
+
                     <div className="capsule-actions">
-                        <div className="file-input-wrapper">
-                            <input type="file" id="file-input" multiple accept="image/*,video/*" />
-                            <label htmlFor="file-input" className="file-input-label">
-                                <Paperclip />
-                                Add Media
-                            </label>
-                        </div>
-                        
                         <button className="lock-capsule-btn">
                             Lock Capsule
                         </button>
                     </div>
                 </div>
-                
+                {/* <div>
+                    <div className="card">
+                        <label className="file-card" htmlFor="fileInput">
+                            <Plus className="plus-icon" />
+                        </label>
+                        <input className="" id="fileInput" type="file" accept="image/*,video/*" />
+                    </div>
+                </div>
+            </div> */}
+
                 <div className="capsule-media-section">
-                    <div className="media-card">
+                    <label className="media-card" htmlFor="fileInput">
                         <Plus className="plus-icon" />
-                    </div>
-                    <div className="media-card media-card-back">
-                        <Plus className="plus-icon" />
-                    </div>
+                    </label>
+                    <input className="" id="fileInput" type="file" accept="image/*,video/*" />
                 </div>
             </div>
         </div>

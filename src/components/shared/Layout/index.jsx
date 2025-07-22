@@ -1,6 +1,6 @@
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import { House, Map, CircleUser } from "lucide-react";
-import Icon from "../../assets/icons/svgs/Icon.svg";
+import Icon from "../../../assets/icons/svgs/Icon.svg";
 import "./style.css";
 
 const Layout = () => {

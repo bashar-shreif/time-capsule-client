@@ -3,13 +3,13 @@ import Icon from '../../../assets/icons/svgs/Icon.svg';
 import { useNavigate } from 'react-router-dom';
 
 const Navigator = () => {
-            const navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div className="navigator">
             <ul className="nav-list">
                 <li className="nav-icon">
-                    <img src={Icon} alt="capsulock" className="website-icon"/>
+                    <img src={Icon} alt="capsulock" className="website-icon" />
                     <h1 className="website-name">Capsulock</h1>
                 </li>
                 <li>
