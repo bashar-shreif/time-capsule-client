@@ -1,71 +1,100 @@
 import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import * as maptilersdk from '@maptiler/sdk';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import MapCapsule from '../../components/map_page/MapCapsule';
 import Pin from '../../assets/icons/svgs/Pin.svg';
 import './style.css'
 
-
 const Map = () => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [selectedCapsule, setSelectedCapsule] = useState(null);
-    const [popupPosition, setPopupPosition] = useState({ lng: 0, lat: 0 });
+    const [popupPosition, setPopupPosition] = useState({ lng: -6.8498, lat: 33.9715 });
+    const [capsules, setCapsules] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
     maptilersdk.config.apiKey = 'NfrHuTl1YQJesNALaw2B';
+    
+    const base_url = 'http://localhost:8000/api';
+    const url = '/v0.1/user/map';
 
-    const capsules = [
-        {
-            id: 1,
-            coordinates: [-6.8498, 33.9715],
-            user: "Sara Hassan",
-            date: "Created: 7/1/25 • Revealed: 8/1/25",
-            message: "To the women I'm becoming, I hope you're smiling and free. Remember the nights we spent dreaming...",
-            profileImage: "",
-            mediaImages: [
-                "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=300&h=200&fit=crop",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=200&fit=crop"
-            ]
-        },
-        {
-            id: 2,
-            coordinates: [-6.8420, 33.9685],
-            user: "Ahmed El Amrani",
-            date: "Created: 6/28/25 • Revealed: 12/28/25",
-            message: "Remember the dreams we had in this place. The coffee shop where everything started...",
-            profileImage: "",
-            mediaImages: []
-        },
-        {
-            id: 3,
-            coordinates: [-6.8350, 33.9650],
-            user: "Laila Bennis",
-            date: "Created: 6/25/25 • Revealed: 6/25/26",
-            message: "This city taught me patience and persistence. Every street holds a memory...",
-            profileImage: "",
-            mediaImages: [
-                "https://images.unsplash.com/photo-1569163139394-de4798e6c3ea?w=300&h=200&fit=crop"
-            ]
-        },
-        {
-            id: 4,
-            coordinates: [-6.8480, 33.9620],
-            user: "Youssef Talbi",
-            date: "Created: 6/20/25 • Revealed: 6/20/30",
-            message: "May you find peace in the chaos of life. This spot was where I found myself...",
-            profileImage: "",
-            mediaImages: []
-        }
-    ];
+    const fetchCapsules = () => {
+        const token = localStorage.getItem("token");
+        
+        axios.get("" + base_url + url + "", {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        }).then((res) => {
+            console.log("Map capsules fetched successfully:", res.data);
+            
+            // Transform API data to match map component structure
+            const transformedCapsules = res.data.payload.map(capsule => ({
+                id: capsule.id,
+                coordinates: [
+                    parseFloat(capsule.location.longitude),
+                    parseFloat(capsule.location.latitude)
+                ],
+                user: getUserName(capsule.user_id),
+                date: formatDate(capsule.created_at, capsule.revealed_at),
+                message: capsule.message,
+                profileImage: "",
+                mediaImages: capsule.media_url ? [capsule.media_url] : []
+            }));
+            
+            setCapsules(transformedCapsules);
+            setLoading(false);
+        }).catch(error => {
+            if (error.response && error.response.data) {
+                console.log('API Error:', error.response.data);
+                setError(error.response.data.message || 'Failed to fetch capsules');
+            } else {
+                console.error('Network Error:', error);
+                setError('Network error occurred');
+            }
+            setLoading(false);
+        });
+    };
+
+    const formatDate = (createdAt, revealedAt) => {
+        const formatDateTime = (dateString) => {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'numeric', 
+                day: 'numeric', 
+                year: '2-digit' 
+            });
+        };
+
+        const createdDate = formatDateTime(createdAt);
+        const revealedDate = formatDateTime(revealedAt);
+        
+        return `Created: ${createdDate} • Revealed: ${revealedDate}`;
+    };
+
+    const getUserName = (userId) => {
+        // You might want to fetch user names from another endpoint
+        // For now, returning a placeholder
+        return `User ${userId}`;
+    };
 
     useEffect(() => {
-        if (map.current) return;
+        fetchCapsules();
+    }, []);
+
+    useEffect(() => {
+        if (map.current || loading || capsules.length === 0) return;
+        
+        // Initialize map
         map.current = new maptilersdk.Map({
             container: mapContainer.current,
             style: maptilersdk.MapStyle.STREETS,
-            center: [33.9838, 35.5018],
+            center: [35.5018, 33.9838], // Center on Lebanon (Beirut area)
             zoom: 14
         });
-
 
         map.current.on('load', () => {
             capsules.forEach((capsule) => {
@@ -93,7 +122,26 @@ const Map = () => {
             setSelectedCapsule(null);
         });
 
-    }, []);
+    }, [capsules, loading]);
+
+    if (loading) {
+        return (
+            <div className="map-wrapper">
+                <div className="loading">Loading map capsules...</div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="map-wrapper">
+                <div className="error">Error: {error}</div>
+                <button onClick={fetchCapsules} className="retry-btn">
+                    Retry
+                </button>
+            </div>
+        );
+    }
 
     return (
         <>
